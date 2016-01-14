@@ -7,12 +7,13 @@ ph = os.path.expanduser('~/public_html')
 
 # first set up the figure, the axis, and the plot element we want to animate
 fig = plt.figure()
+# we install the axes x from 0 to 2 and y from -2 to 2
 ax = plt.axes(xlim=(0,2), ylim=(-2, 2))
 # set background colour
 ax.set_axis_bgcolor('grey')
 # drawing a line
 line, = ax.plot([], [], lw=2,color='white')
-# drawing two circles
+# drawing two circles with black perimeter and width of five mm
 circle, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='black',
 markersize=30, markeredgewidth = 5)
 circle1, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='black',
@@ -41,5 +42,5 @@ def animate(i):
 # call the animator.  blit=True means only re-draw the parts that have changed.
 anim = animation.FuncAnimation(fig, animate, init_func=init,
                                frames=200, interval=20, blit=True)
-# saving the video
+# saving the video, and in every second draws 30 frames
 anim.save(ph+"/animation_Team5.mp4", fps=30, extra_args=['-vcodec', 'libx264'])
