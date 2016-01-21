@@ -17,6 +17,8 @@ line1, = ax.plot([], [], lw=1,color='red')
 # drawing two circles with black perimeter and width of five mm
 circle, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='black',
 markersize=30, markeredgewidth = 5)
+circle2, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='white',
+markersize=30, markeredgewidth = 3)
 circle1, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='black',
 markersize=30, markeredgewidth = 1)
 
@@ -26,7 +28,8 @@ def init():
     line1.set_data([], [])
     circle.set_data([],[])
     circle1.set_data([],[])
-    return line,line1,circle,circle1
+    circle2.set_data([],[])
+    return line,line1,circle,circle1, circle2
 
 # animation function of sin,tan and the circles. This is called sequentially
 def animate(i):
@@ -34,16 +37,16 @@ def animate(i):
     y = np.sin(2 * np.pi * (x - 0.01 * i))
     #Defining the tan function
     y1 = np.tan(2*np.pi*(x-0.01*i))
+    y2 = np.cos(2*np.pi*(x-0.01*i))
     line.set_data(x, y)
     line.set_data(x,y1)
-    line1.set_data(x, y)
-    line1.set_data(x,y1)
-    
+    line1.set_data(x,y2)
     
     # ploting the two circles on sin and tan functions
     circle.set_data(x,y)
     circle1.set_data(x,y1)
-    return line,line1,circle,circle1
+    circle2.set_data(x,y2)
+    return line,line1,circle,circle1, circle2
 
 # call the animator.  blit=True means only re-draw the parts that have changed.
 anim = animation.FuncAnimation(fig, animate, init_func=init,
