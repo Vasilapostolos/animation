@@ -10,20 +10,20 @@ fig = plt.figure()
 # we install the axes x from 0 to 2 and y from -2 to 2
 ax = plt.axes(xlim=(0,2), ylim=(-2, 2))
 # set background colour
-ax.set_axis_bgcolor('black')
+ax.set_axis_bgcolor('palevioletred')
 # drawing a line
-line, = ax.plot([], [], lw=8,color='black')
-line1, = ax.plot([], [], lw=16,color='gold')
+line, = ax.plot([], [], lw=8,color='crimson')
+line1, = ax.plot([], [], lw=16,color='peru')
 
 # drawing two circles with black perimeter and width of 1 mm
-circle, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='black',
+circle, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='brown',
 markersize=50, markeredgewidth = 1)
-circle1, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='red',
+circle1, =ax.plot([],[], 'o', markerfacecolor='sienna', markeredgecolor='burlywood',
 markersize=40, markeredgewidth = 1)
 #Draw a diamond with darkblue perimeter and width of one mm
-diamond_point, = ax.plot([], [], 'd', markerfacecolor='w',
-              markeredgecolor='darkblue', markersize=35,
-              markeredgewidth = 1)
+diamond_point, = ax.plot([], [], 'd', markerfacecolor='steelblue',
+              markeredgecolor='paleturquoise', markersize=35,
+              markeredgewidth = 0.7)
 
 # initialization of the line and the two circles: plot the background of each frame
 def init():
