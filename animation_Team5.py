@@ -14,11 +14,17 @@ ax.set_axis_bgcolor('black')
 # drawing a line
 line, = ax.plot([], [], lw=8,color='black')
 line1, = ax.plot([], [], lw=16,color='gold')
-# drawing two circles with black perimeter and width of five mm
+
+# drawing two circles with black perimeter and width of 1 mm
 circle, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='black',
 markersize=50, markeredgewidth = 1)
 circle1, =ax.plot([],[], 'o', markerfacecolor='w', markeredgecolor='red',
-markersize=50, markeredgewidth = 1)
+markersize=40, markeredgewidth = 1)
+#Draw a diamond with darkblue perimeter and width of one mm
+diamond_point, = ax.plot([], [], 'd', markerfacecolor='w',
+              markeredgecolor='darkblue', markersize=35,
+              markeredgewidth = 1)
+
 # initialization of the line and the two circles: plot the background of each frame
 def init():
     line.set_data([], [])
@@ -40,7 +46,8 @@ def animate(i):
     # ploting the two circles on sin and tan functions
     circle.set_data(x,y)
     circle1.set_data(x,y1)
-    return line,line1,circle,circle1
+    diamond_point.set_data(x1, y)
+    return line,line1,circle,circle1,diamond_point
 
 # call the animator.  blit=True means only re-draw the parts that have changed.
 anim = animation.FuncAnimation(fig, animate, init_func=init,
